@@ -58,6 +58,58 @@ const columns: MUIDataTableColumn[] = [
     },
   },
   {
+    name: 'composers',
+    label: 'Composers',
+    options: {
+      sort: false,
+      customBodyRender: (value: any) => {
+        if (value != '') {
+          return <ListCell data={value} />;
+        }
+        return <NotInterestedIcon color='secondary' />;
+      },
+    },
+  },
+  {
+    name: 'writers',
+    label: 'Writers',
+    options: {
+      sort: false,
+      customBodyRender: (value: any) => {
+        if (value != '') {
+          return <ListCell data={value} />;
+        }
+        return <NotInterestedIcon color='secondary' />;
+      },
+    },
+  },
+  {
+    name: 'lyricists',
+    label: 'Lyricists',
+    options: {
+      sort: false,
+      customBodyRender: (value: any) => {
+        if (value != '') {
+          return <ListCell data={value} />;
+        }
+        return <NotInterestedIcon color='secondary' />;
+      },
+    },
+  },
+  {
+    name: 'copyrights',
+    label: 'Copyrights',
+    options: {
+      sort: false,
+      customBodyRender: (value: any) => {
+        if (value != '') {
+          return <ListCell data={value} />;
+        }
+        return <NotInterestedIcon color='secondary' />;
+      },
+    },
+  },
+  {
     name: 'genres',
     label: 'Genres',
     options: {

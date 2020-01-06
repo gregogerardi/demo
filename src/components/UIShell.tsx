@@ -42,7 +42,7 @@ const UIShell = (props: { history: any }) => {
           </div>
         </ListItem>
         <Divider />
-        {['artists', 'genres', 'songs', 'channels', 'recognitions'].map(text => (
+        {['artists', 'genres', 'songs', 'channels', 'recognitions', 'composers', 'writers', 'lyricists', 'copyrights'].map(text => (
           <ListItem
             onClick={() => {
               history.push(`/${text}`);

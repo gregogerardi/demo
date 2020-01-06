@@ -8,9 +8,12 @@ import { Channels } from './components/Channels';
 import { Genres } from './components/Genres';
 import { Songs } from './components/Songs';
 import { Recognitions } from './components/Recognitions';
-import { CssBaseline, Container, Typography } from '@material-ui/core';
-import classes from '*.module.css';
+import { CssBaseline } from '@material-ui/core';
 import { Footer } from './components/Footer';
+import { Writers } from './components/Writers';
+import { Composers } from './components/Composers';
+import { Lyricists } from './components/Lyricists';
+import { Copyrights } from './components/Copyrights';
 
 export const App: React.FC = () => {
   return (
@@ -23,6 +26,10 @@ export const App: React.FC = () => {
             <Route exact path='/' component={Home} />
             <Route path='/home' component={Home} />
             <Route path='/artists' component={Artists} />
+            <Route path='/writers' component={Writers} />
+            <Route path='/composers' component={Composers} />
+            <Route path='/lyricists' component={Lyricists} />
+            <Route path='/copyrights' component={Copyrights} />
             <Route path='/channels' component={Channels} />
             <Route path='/genres' component={Genres} />
             <Route path='/songs' component={Songs} />

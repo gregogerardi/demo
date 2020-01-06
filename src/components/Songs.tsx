@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import MUIDataTable, { MUIDataTableColumnOptions, MUIDataTableOptions, MUIDataTableColumn, MUIDataTableMeta } from 'mui-datatables';
-import { SERVER_URL } from '../properties';
-import { FormControlLabel, Switch, Button, FormControl, Select, MenuItem } from '@material-ui/core';
-import { green, red } from '@material-ui/core/colors';
+import React, {  } from 'react';
+import { MUIDataTableColumn, MUIDataTableMeta } from 'mui-datatables';
+import { Button } from '@material-ui/core';
+import { red } from '@material-ui/core/colors';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import NotInterestedIcon from '@material-ui/icons/NotInterested';
 import spotify from '../spotify.svg';
@@ -23,7 +21,59 @@ export const songColumns: MUIDataTableColumn[] = [
     label: 'Artists',
     options: {
       sort: false,
-      customBodyRender: (value: any, tableMeta: MUIDataTableMeta, updateValue: (s: any, c: any, p: any) => any) => {
+      customBodyRender: (value: any) => {
+        if (value != '') {
+          return <ListCell data={value} />;
+        }
+        return <NotInterestedIcon color='secondary' />;
+      },
+    },
+  },
+  {
+    name: 'composers',
+    label: 'Composers',
+    options: {
+      sort: false,
+      customBodyRender: (value: any) => {
+        if (value != '') {
+          return <ListCell data={value} />;
+        }
+        return <NotInterestedIcon color='secondary' />;
+      },
+    },
+  },
+  {
+    name: 'writers',
+    label: 'Writers',
+    options: {
+      sort: false,
+      customBodyRender: (value: any) => {
+        if (value != '') {
+          return <ListCell data={value} />;
+        }
+        return <NotInterestedIcon color='secondary' />;
+      },
+    },
+  },
+  {
+    name: 'lyricists',
+    label: 'Lyricists',
+    options: {
+      sort: false,
+      customBodyRender: (value: any) => {
+        if (value != '') {
+          return <ListCell data={value} />;
+        }
+        return <NotInterestedIcon color='secondary' />;
+      },
+    },
+  },
+  {
+    name: 'copyrights',
+    label: 'Copyrights',
+    options: {
+      sort: false,
+      customBodyRender: (value: any) => {
         if (value != '') {
           return <ListCell data={value} />;
         }
@@ -36,7 +86,7 @@ export const songColumns: MUIDataTableColumn[] = [
     label: 'Genres',
     options: {
       sort: false,
-      customBodyRender: (value: any, tableMeta: MUIDataTableMeta, updateValue: (s: any, c: any, p: any) => any) => {
+      customBodyRender: (value: any) => {
         if (value != '') {
           return <ListCell data={value} />;
         }
@@ -64,7 +114,7 @@ export const songColumns: MUIDataTableColumn[] = [
     name: 'duration',
     label: 'Duration (secs)',
     options: {
-      customBodyRender: (value, tableMeta, updateValue) => {
+      customBodyRender: (value) => {
         return value / 1000;
       },
     },
@@ -82,7 +132,7 @@ export const songColumns: MUIDataTableColumn[] = [
     label: 'Youtube Link',
     options: {
       sort: true,
-      customBodyRender: (value: any, tableMeta: MUIDataTableMeta, updateValue: (s: any, c: any, p: any) => any) => {
+      customBodyRender: (value: any) => {
         if (value != '') {
           const url = `https://www.youtube.com/watch?v=${value}`;
           return (
@@ -100,7 +150,7 @@ export const songColumns: MUIDataTableColumn[] = [
     label: 'Spotify Link',
     options: {
       sort: true,
-      customBodyRender: (value: any, tableMeta: MUIDataTableMeta, updateValue: (s: any, c: any, p: any) => any) => {
+      customBodyRender: (value: any) => {
         if (value != '') {
           const url = `https://open.spotify.com/track/${value}`;
           return (
